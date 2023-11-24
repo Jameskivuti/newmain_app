@@ -11,7 +11,7 @@ Class-based views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
-    1. Import the include() function: from django.urls import include, path
+    1. Import the include() function: from django.urls import iwordnclude, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls.static import static
@@ -24,6 +24,7 @@ from main_app import views
 urlpatterns = [
                   path('', views.students, name="home"),
                   path('show', views.show_students, name="show"),
-                  path('details/<int:id>', views.details, name="details"),
+                  path('details/<int:student_id>', views.details, name="details"),
+                  path('students/delete/<int:student_id>', views.delete_student, name="delete"),
                   path('admin/', admin.site.urls),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
