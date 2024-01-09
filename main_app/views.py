@@ -31,7 +31,7 @@ def show_students(request):
     mon = today.month
     day = today.day
 
-    wanafunzi= Student.objects.filter(dob__month=mon, dob__day=day).order_by("-first_name")
+    wanafunzi = Student.objects.filter(dob__month=mon, dob__day=day).order_by("-first_name")
     return render(request, "display.html", {"students": wanafunzi})
 
 
